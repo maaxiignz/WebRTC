@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { error } = require('console');
 
 const app = express();
 const server = http.createServer(app);
@@ -63,7 +64,7 @@ app.post('/api/register', async (req, res) => {
       return res.status(400).json({ error: 'El correo ya está registrado' });
     }
 
-    console.error('❌ Error en registro:', err.message);
+    console.error('❌ Error en registro:', error.message);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
